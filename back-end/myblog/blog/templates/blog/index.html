@@ -1,5 +1,31 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h2>Login</h2>
+{% load static %}
+
+  <div class="profile">
+    <img src="{% static 'blog/images/profile.jpg' %}" alt="">
+  </div>
+
+  <h2 class="title">
+    leejinseok.io
+  </h2>
+  
+  <form class="container full-width">
+    <div class="form-group">
+      <input 
+        type="email" 
+        class="form-control" 
+        aria-describedby="emailHelp" 
+        placeholder="아이디를 입력해주세요.">
+    </div>
+    <div class="form-group">
+      <input 
+        type="password" 
+        class="form-control" 
+        id="exampleInputPassword1" 
+        placeholder="패스워드를 입력해주세요.">
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">로그인</button>
+  </form>
 {% endblock %}
