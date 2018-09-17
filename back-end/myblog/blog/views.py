@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 def index(request):
@@ -12,3 +13,6 @@ def index(request):
   }
 
   return render(request, 'blog/index.html', context)  
+
+def login(request):
+  return HttpResponseRedirect(reverse('blog:index'))
