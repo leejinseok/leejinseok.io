@@ -1,0 +1,108 @@
+/* @import url('http://fonts.googleapis.com/earlyaccess/notosanskr.css'); */
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+
+body {
+  font-family: 'NanumSquare', sans-serif;
+  font-size: 16px;
+}
+
+.full-width {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* header */
+.header .header__inner {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px;
+  align-items: center;
+}
+
+.header .header__inner .profile a {
+  display: flex;
+  align-items: center;
+  font-family: 'Lobster', sans-serif;
+  font-size: 26px;
+}
+
+.header .header__inner .profile a span {
+  margin-left: 10px;
+  color: #333;
+}
+
+.header .header__inner .profile .profile__inner {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #dddddd;
+}
+
+.header .header__inner .profile .profile__inner img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.header .header__inner .header__menus {
+  display: flex;
+  align-items: center;
+}
+
+.header .header__inner .header__menus a {
+  margin-left: 20px;
+  font-size: 1.1rem;
+}
+
+.header .header__inner .header__menus a.active {
+  font-weight: bold;
+}
+
+.header .header__inner .hamburger {
+  display: none;
+}
+
+/* sidebar */
+.sidebar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: calc(100% - 60px);
+  height: 100%;
+  background-color: rgba(0, 0, 0, .75);
+  transition: all .5s cubic-bezier(0.86, 0.01, 0.77, 0.78);
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+
+@keyframes fadeLeft {
+  100% {
+    left: 0;
+  }
+}
+
+
+@media only screen and (max-width: 1024px) {
+  .sidebar {
+    display: block;
+  }
+
+  .header .header__inner .header__menus {
+    display: none;
+  }
+
+  .header .header__inner .hamburger.active {
+    display: block;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,77 @@
+@import url('http://fonts.googleapis.com/earlyaccess/notosanskr.css');
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+@import url('//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'NanumSquare', sans-serif;
+  font-size: 16px;
+}
+
+.full-width {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* header */
+.header {
+
+}
+
+.header .header__inner {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  position: relative;
+  justify-content: space-between;
+}
+
+
+.header .header__inner .profile {
+  width: 36px;
+  height: 36px;
+  left: 0px;
+}
+
+.header .header__inner .profile .profile__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid #eee;
+}
+
+.header .header__inner .profile .profile__inner img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.header .header__inner .header__menus a {
+  margin-left: 20px;
+  font-size: 1.1rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  display: inline-block;
+  position: relative;
+}
+
+.header .header__inner .header__menus a::after {
+  bottom: -10px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  transition: all .3s;
+  content: '';
+  position: absolute;
+  background-color: #333;
+}
+
+.header .header__inner .header__menus a.active::after,
+.header .header__inner .header__menus a:hover::after {
+  width: 100%;
+}

@@ -1,0 +1,12 @@
+article {
+  margin-bottom: 20px !important;
+}
+
+article h2 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+article p {
+  font-size: 16px;
+}
