@@ -1,9 +1,9 @@
 function submitFrm (frm) {
-  var id = frm.id;
+  var username = frm.username;
   var password = frm.password;
 
-  if (!id.value.length) {
-    id.focus();
+  if (!username.value.length) {
+    username.focus();
     alert('아이디를 입력해주세요');
     return false;
   }
@@ -13,5 +13,4 @@ function submitFrm (frm) {
     alert('패스워드를 입력해주세요.');
     return false;
   }
-
 }
