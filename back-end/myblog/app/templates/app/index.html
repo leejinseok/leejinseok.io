@@ -1,17 +1,17 @@
-{% extends 'blog/base.html' %}
+{% extends 'app/base_index.html' %}
 
 {% block content %}
 {% load static %}
 
   <div class="profile">
-    <img src="{% static 'blog/images/profile.jpg' %}" alt="">
+    <img src="{% static 'app/images/profile.jpg' %}" alt="">
   </div>
 
   <h2 class="title">
     leejinseok.io
   </h2>
   
-  <form class="container full-width" action="{% url 'blog:login' %}" method="POST" onsubmit="return submitFrm(this)">
+  <form class="container full-width"  method="POST" onsubmit="return submitFrm(this)">
     {% csrf_token %}
     <div class="form-group">
       <input 
