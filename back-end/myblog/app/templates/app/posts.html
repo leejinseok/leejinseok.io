@@ -20,7 +20,9 @@
             {{ post.id }}
           </td>
           <td>
-            {{ post.title }}
+            <a href="{% url 'app:post_detail' pk=post.id %}">
+              {{ post.title }}
+            </a>
           </td>
           <td>
             {{ post.category__display_name }}

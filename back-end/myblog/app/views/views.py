@@ -41,9 +41,27 @@ def posts(request):
     'js': [
       'app/js/posts.js'
     ],
-    'request': request,
     'posts': posts
   }
   return render(request, 'app/posts.html', context)
+
+def post_detail(request, pk):
+  post = Post.objects.values(
+    'id',
+    'author__username',
+    'title',
+    'category__display_name',
+    'created_date',
+  ).get(id=pk)
+  context = {
+    'css': [
+      'app/css/post_detail.css'
+    ],
+    'js': [
+      'app/js/post_detail.js'
+    ],
+    'post': post
+  }
+  return render(request, 'app/post_detail.html', context)
 
 
