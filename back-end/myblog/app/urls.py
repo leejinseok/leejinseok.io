@@ -1,11 +1,12 @@
 from django.conf.urls import url
 from django.urls import path, include
 from django.contrib.auth import views as auth_views  # 이 줄 추가.
-from . import views
+from .views import views
+from .views import api
 
 app_name = 'app'
 urlpatterns = [
-    url(r'^$', views.view__index, name="index"),
-    url(r'^login', views.api__login, name="login"),
-    url(r'^posts', views.view__posts, name="posts")
+    url(r'^$', views.index, name="index"), # index
+    url(r'^posts', views.posts, name="posts"), # posts
+    url(r'^api/v1/login', api.loginAPI, name="login"), # api / login
 ]
