@@ -1,3 +1,12 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
 @import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
 @import url('https://fonts.googleapis.com/css?family=Lobster');
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* nav  */
+.navbar-light .navbar-brand {
+  font-family: 'Lobster', sans-serif;
+}

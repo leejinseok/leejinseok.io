@@ -1,0 +1,40 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>제목</th>
+        <th>카테고리</th>
+        <th>작성일</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {% for post in posts %}
+          <td>
+            {{ post.id }}
+          </td>
+          <td>
+            {{ post.title }}
+          </td>
+          <td>
+            {{ post.category__display_name }}
+          </td>
+          <td>
+            {{ post.created_date }}
+          </td>
+        {% endfor %}
+      </tr>
+    </tbody>
+
+  </table>
+  
+</div>
+
+
+{% endblock %}
