@@ -2,14 +2,13 @@ from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirec
 from django.contrib.auth import login, authenticate
 from django.urls import reverse
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from .forms import LoginForm
-from .models import Post
+from app.forms import LoginForm
+from app.models import Post
 
-# view__index
-def view__index(request):
+# index (login form)
+def index(request):
   # if (request.user):
   #   return redirect('app:home');
-
   form = LoginForm()
   context = {
     'css': [
@@ -23,8 +22,8 @@ def view__index(request):
 
   return render(request, 'app/index.html', context)  
 
-# view_home
-def view__posts(request):
+# posts
+def posts(request):
   post_list = Post.objects.all().values(
     'id',
     'title',
@@ -42,20 +41,27 @@ def view__posts(request):
     'js': [
       'app/js/posts.js'
     ],
-    'request': request,
     'posts': posts
   }
   return render(request, 'app/posts.html', context)
 
-# api__login
-def api__login(request): 
-  if request.method == "POST":
-    form = LoginForm(request.POST)
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(username = username, password = password)
-    if user is not None:
-      login(request, user)
-      return redirect('app:posts')
-    else:
-      return HttpResponse('로그인 실패. 다시 시도 해보세요.')
+def post_detail(request, pk):
+  post = Post.objects.values(
+    'id',
+    'author__username',
+    'title',
+    'category__display_name',
+    'created_date',
+  ).get(id=pk)
+  context = {
+    'css': [
+      'app/css/post_detail.css'
+    ],
+    'js': [
+      'app/js/post_detail.js'
+    ],
+    'post': post
+  }
+  return render(request, 'app/post_detail.html', context)
+
+

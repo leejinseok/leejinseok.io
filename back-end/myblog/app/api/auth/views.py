@@ -1,7 +1,7 @@
 from django.shortcuts import  HttpResponse, HttpResponseRedirect, redirect
 from django.contrib.auth import login, authenticate
-from ..forms import LoginForm
-from ..models import Post
+from app.forms import LoginForm
+from app.models import Post
 
 # api__login
 def loginAPI(request): 
