@@ -1,0 +1,16 @@
+.medium-editor-element {
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  padding: .575rem .75rem;
+  min-height: 200px;
+}
+
+.medium-editor-element p {
+  margin-bottom: 4px;
+}
+
+.medium-editor-placeholder-relative:after, .medium-editor-placeholder:after {
+  font-style: normal;
+  color: #495057;
+}
