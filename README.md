@@ -11,6 +11,11 @@
 - Python Django
 - MySQL
 
+### Admin
+- Django Form
+- Medium Editor
+- Bootstrap
+
 ### Infra
 - AWS EC2 (Ubuntu 16.04)
 - Apache2
