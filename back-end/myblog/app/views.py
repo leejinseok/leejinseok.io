@@ -64,4 +64,15 @@ def post_detail(request, pk):
   }
   return render(request, 'app/post_detail.html', context)
 
+def post_write(request):
+  context = {
+    'css': [
+      'app/css/post_write.css'
+    ],
+    'js': [
+      'app/js/post_write.js'
+    ]
+  }
+
+  return render(request, 'app/post_write.html', context)
 

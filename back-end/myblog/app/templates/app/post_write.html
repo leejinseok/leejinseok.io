@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<div class="container">
+  <form action="">
+    {% csrf_token %}
+    <div class="form-group">
+      <input 
+        type="text" 
+        class="form-control"
+        name="username" 
+        aria-describedby="emailHelp" 
+        placeholder="제목을 입력해주세요.">
+      </div>
+  </form>
+</div>
+{% endblock %}
