@@ -8,6 +8,11 @@ from app.models import Post
 def all(request):
   return HttpResponse('hi')
 
+def register(request):
+  return JsonResponse({
+    'method': 'POST'
+  })
+
 @csrf_exempt
 def one(request, id):
   if (request.method == 'GET'):
@@ -22,4 +27,9 @@ def one(request, id):
   if (request.method == 'PUT'):
     return JsonResponse({
       'method': 'PUT'
+    })
+
+  if (request.method == 'POST'): 
+    return JsonResponse({
+      'method': 'POST'
     })

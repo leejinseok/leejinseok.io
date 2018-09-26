@@ -2,6 +2,12 @@ $(document).ready(function () {
   handleMediumEditor();
 })
 
+function submitPostFrm (frm) {
+  var title = frm.title;
+
+  return true;
+}
+
 function handleMediumEditor () {
   var options = {
       placeholder: {
