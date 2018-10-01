@@ -7,8 +7,9 @@ from app.models import Post
 
 # index (login form)
 def index(request):
-  # if (request.user):
-  #   return redirect('app:home');
+  # if request.session.get('user', True):
+  #     return redirect('app:posts')
+  
   form = LoginForm()
   context = {
     'css': [

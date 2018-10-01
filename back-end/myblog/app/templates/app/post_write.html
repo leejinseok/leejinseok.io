@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container container-super">
-  <form action="/app/api/post/register" method="post" onsubmit="return submitPostFrm(this)">
+  <form action="{% url 'app:api-posts' %}" method="post" onsubmit="return submitPostFrm(this)">
     {% csrf_token %}
     <div class="form-group">
       <input 

@@ -20,7 +20,7 @@
             {{ post.id }}
           </td>
           <td>
-            <a href="{% url 'app:post_detail' pk=post.id %}">
+            <a href="{% url 'app:post-detail' pk=post.id %}">
               {{ post.title }}
             </a>
           </td>
@@ -35,7 +35,7 @@
     </tbody>
   </table>
   
-  <a href="{% url 'app:post_write' %}" class="btn btn-primary">
+  <a href="{% url 'app:post-write' %}" class="btn btn-primary">
     글쓰기
   </a>
 </div>

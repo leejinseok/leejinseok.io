@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.urls import path, include
-from . import views
+from .views import PostsView
 
 urlpatterns = [
-  path('login', views.login, name="api-auth-login")
+  url(r'^', PostsView.as_view(), name="api-posts"),
 ]

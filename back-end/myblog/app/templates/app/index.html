@@ -11,7 +11,7 @@
   leejinseok.io
 </h2>
 
-<form class="container full-width" method="POST" action="{% url 'app:login' %}" onsubmit="return submitFrm(this)">
+<form class="container full-width" method="POST" action="{% url 'app:api-auth-login' %}" onsubmit="return submitFrm(this)">
   {% csrf_token %}
   <div class="form-group">
     <input 
