@@ -73,7 +73,7 @@ def post_detail(request, pk):
     'js': [
       'app/js/post_detail.js'
     ],
-      'breadcrumbs': [
+    'breadcrumbs': [
       {
         'display': '<i class=\'fas fa-home\'></i>',
         'url': 'app:posts',
@@ -101,7 +101,24 @@ def post_write(request):
     ],
     'js': [
       'app/js/post_write.js'
-    ]
+    ],
+    'breadcrumbs': [
+      {
+        'display': '<i class=\'fas fa-home\'></i>',
+        'url': 'app:posts',
+        'class': '',
+      },
+      {
+        'display': '포스트',
+        'url': 'app:posts',
+        'class': '',
+      },
+      {
+        'display': '글쓰기',
+        'url': '#',
+        'class': 'active',
+      }
+    ],
   }
 
   return render(request, 'app/post_write.html', context)

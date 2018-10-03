@@ -14,7 +14,6 @@ class PostsView(View):
 
   @method_decorator(csrf_protect)
   def post(self, request, *args, **kwargs):
-    print(request)
     return HttpResponse('This is POST request')
 
   @method_decorator(csrf_exempt)

@@ -4,24 +4,7 @@
 <main ng-controller="mainCtrl">
 
   <div class="container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        {% for breadcrumb in breadcrumbs %}
-          <li class="breadcrumb-item">
-            {% if forloop.last == False %}
-              <a href="{% url breadcrumb.url %}" class="{{ breadcrumb.class }}">
-                {{ breadcrumb.display | safe }}
-              </a>
-            {% else %}            
-              <a href="{{ breadcrumb.url }}">
-                {{ breadcrumb.display | safe }}
-              </a>
-            {% endif %}
-            
-          </li>
-        {% endfor %}
-      </ol>
-    </nav>
+    {% include 'app/partials/breadcrumb.html' %}
       
     <h2>{{ post.title }}</h2>
     <div>
