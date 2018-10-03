@@ -3,42 +3,61 @@
 {% block content %}
 {% load static %}
 
-<div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>No</th>
-        <th>제목</th>
-        <th>카테고리</th>
-        <th>작성일</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        {% for post in posts %}
-          <td>
-            {{ post.id }}
-          </td>
-          <td>
-            <a href="{% url 'app:post-detail' pk=post.id %}">
-              {{ post.title }}
-            </a>
-          </td>
-          <td>
-            {{ post.category__display_name }}
-          </td>
-          <td>
-            {{ post.created_date }}
-          </td>
+<main ng-controller="mainCtrl">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+          <li class="breadcrumb-item">
+            {% if forloop.first %}
+              <a href="{% url breadcrumb.url %}" class="{{ breadcrumb.class }}">
+                {{ breadcrumb.display | safe }}
+              </a>
+            {% else %}            
+              <a href="{{ breadcrumb.url }}">
+                {{ breadcrumb.display | safe }}
+              </a>
+            {% endif %}
+            
+          </li>
         {% endfor %}
-      </tr>
-    </tbody>
-  </table>
+      </ol>
+    </nav>
   
-  <a href="{% url 'app:post-write' %}" class="btn btn-primary">
-    글쓰기
-  </a>
-</div>
-
-
+    <table class="table">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>제목</th>
+          <th>카테고리</th>
+          <th>작성일</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          {% for post in posts %}
+            <td>
+              {{ post.id }}
+            </td>
+            <td>
+              <a href="{% url 'app:post-detail' pk=post.id %}">
+                {{ post.title }}
+              </a>
+            </td>
+            <td>
+              {{ post.category__display_name }}
+            </td>
+            <td>
+              {{ post.created_date }}
+            </td>
+          {% endfor %}
+        </tr>
+      </tbody>
+    </table>
+    
+    <a href="{% url 'app:post-write' %}" class="btn btn-primary">
+      글쓰기
+    </a>
+  </div>
+</main>
 {% endblock %}
