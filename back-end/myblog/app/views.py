@@ -25,7 +25,7 @@ def index(request):
 
 # posts
 def posts(request):
-  post_list = Post.objects.all().values(
+  post_list = Post.objects.all().order_by('-created_date').values(
     'id',
     'title',
     'created_date',

@@ -34,24 +34,24 @@
         </tr>
       </thead>
       <tbody>
+        {% for post in posts %}
         <tr>
-          {% for post in posts %}
-            <td>
-              {{ post.id }}
-            </td>
-            <td>
-              <a href="{% url 'app:post-detail' pk=post.id %}">
-                {{ post.title }}
-              </a>
-            </td>
-            <td>
-              {{ post.category__display_name }}
-            </td>
-            <td>
-              {{ post.created_date }}
-            </td>
-          {% endfor %}
+          <td>
+          {{ post.id }}
+          </td>
+          <td>
+            <a href="{% url 'app:post-detail' pk=post.id %}">
+              {{ post.title }}
+            </a>
+          </td>
+          <td>
+            {{ post.category__display_name }}
+          </td>
+          <td>
+            {{ post.created_date }}
+          </td>
         </tr>
+        {% endfor %}
       </tbody>
     </table>
     

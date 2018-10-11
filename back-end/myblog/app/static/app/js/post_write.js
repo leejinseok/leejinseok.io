@@ -15,7 +15,12 @@ function handleSubmitForm () {
   var frm = $('#frm');
 
   frm.submit(function () {
-    var data = $(this).serialize();
+    var data = objectToQueryString({
+      csrfmiddlewaretoken: frm.find('[name=csrfmiddlewaretoken]').val(),
+      title: frm.find('[name=title]').val(),
+      content: editor.getContent(),
+    });
+
     var type = $(this).attr('method');
     var url = $(this).attr('action');
     $.ajax({
@@ -31,6 +36,7 @@ function handleSubmitForm () {
   });
 }
 
+var editor;
 /**
  * handleMediumEditor
  * @return {void}
@@ -42,6 +48,6 @@ function handleMediumEditor () {
         hideOnClick: true
     }
   }
-  var editor = new MediumEditor('.editable', options);
+  editor = new MediumEditor('.editable', options);
 }
 
