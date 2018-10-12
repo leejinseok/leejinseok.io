@@ -36,9 +36,7 @@ class PostsView(View):
 
   @method_decorator(csrf_protect)
   def delete(self, request, *args, **kwargs):
-    splited = request.path.split('/')
-    post = splited[len(splited) - 1]
-    
+    post = kwargs['id']
     return HttpResponse('This is DELETE request')
 
 

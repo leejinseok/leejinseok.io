@@ -13,7 +13,7 @@
     <button type="button" class="btn btn-danger" onclick="removePost('{{ post.id }}')">
 
       {% csrf_token %}
-      <input type="hidden" name="url" value="{% url 'app:api-posts' %}">
+      <input type="hidden" name="url" value="{% url 'app:api-post' id=post.id %}">
       <input type="hidden" name="id" value="{{ post.id }}">
       삭제
     </button>

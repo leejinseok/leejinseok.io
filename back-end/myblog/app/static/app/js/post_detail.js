@@ -8,6 +8,8 @@ function removePost (id) {
         id: id
     };
 
+    if (!confirm('정말 해당 게시글을 삭제하시겠습니까?')) return;
+
     $.ajax({
         url: url + id,
         type: 'delete',
