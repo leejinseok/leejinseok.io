@@ -1,17 +1,22 @@
 {% extends 'app/base.html' %}
-
 {% block content %}
-<main ng-controller="mainCtrl">
-
   <div class="container">
     {% include 'app/partials/breadcrumb.html' %}
-      
     <h2>{{ post.title }}</h2>
-    <div>
+    
+    {% if post.content %}
+    <div class="content">
       {{ post.content }}
     </div>
+    {% endif %}
+    
+    <button type="button" class="btn btn-danger" onclick="removePost('{{ post.id }}')">
+
+      {% csrf_token %}
+      <input type="hidden" name="url" value="{% url 'app:api-posts' %}">
+      <input type="hidden" name="id" value="{{ post.id }}">
+      삭제
+    </button>
+    
   </div>
-</main>
-
-
 {% endblock %}

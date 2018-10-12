@@ -3,7 +3,7 @@ from django.contrib.auth import login, authenticate
 from django.urls import reverse
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from app.forms import LoginForm
-from app.models import Post
+from app.models import Post, PostCategory
 
 # index (login form)
 def index(request):
@@ -95,6 +95,7 @@ def post_detail(request, pk):
   return render(request, 'app/post_detail.html', context)
 
 def post_write(request):
+  post_categories = PostCategory.objects.all().values('id', 'display_name')
   context = {
     'css': [
       'app/css/post_write.css'
@@ -119,6 +120,7 @@ def post_write(request):
         'class': 'active',
       }
     ],
+    'post_categories': post_categories
   }
 
   return render(request, 'app/post_write.html', context)
