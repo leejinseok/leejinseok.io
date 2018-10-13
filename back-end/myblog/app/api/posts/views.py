@@ -36,8 +36,19 @@ class PostsView(View):
 
   @method_decorator(csrf_protect)
   def delete(self, request, *args, **kwargs):
-    post = kwargs['id']
-    return HttpResponse('This is DELETE request')
+    post = get_object_or_404(Post, id=kwargs['id']);
+    try:
+      post.delete()
+      return JsonResponse({
+      'status': 'success',
+      })
+    except ProtectedError:
+      error_message = "This object can't be deleted!!"
+      return JsonResponse(error_message)
+
+    return JsonResponse({
+      'status': 'failed',
+    })
 
 
 

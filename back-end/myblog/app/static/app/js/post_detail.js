@@ -2,24 +2,27 @@
  * 
  * @param {*} id 
  */
-function removePost (id) {
+function removePost () {
     var url = $('[name=url]').val();
-    var data = {
-        id: id
-    };
-
     if (!confirm('정말 해당 게시글을 삭제하시겠습니까?')) return;
 
     $.ajax({
-        url: url + id,
+        url: url,
         type: 'delete',
-        data: data,
         beforeSend: function(xhr) {
             xhr.setRequestHeader("X-CSRFToken", getCookie("csrftoken"));
         }
     }).done(function (response) {
-        console.log(response);
+        if (response.status === 'success') {
+            window.location.href = '/app/posts';
+        }        
+
+        if (response.msg === 'something failed') {
+            alert('정상적으로 처리하지 못하였습니다.');
+        }
     }).fail(function (err) {
         console.error(err);
     });
+
+    return false;
 }

@@ -50,12 +50,14 @@ function handleSubmitForm () {
     }).done(function (response) {
       if (response.status === 'success') {
         window.location.href = '/app/posts';
+        return;
       }
 
       alert('데이터를 처리하지 못하였습니다.');
     }).fail(function (err) {
       console.error(err);
     });
+
     return false;
   });
 }

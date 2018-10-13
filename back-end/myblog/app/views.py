@@ -63,6 +63,7 @@ def post_detail(request, pk):
     'id',
     'author__username',
     'title',
+    'content',
     'category__display_name',
     'created_date',
   ).get(id=pk)

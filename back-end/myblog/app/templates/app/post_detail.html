@@ -1,22 +1,36 @@
 {% extends 'app/base.html' %}
 {% block content %}
+<main>
   <div class="container">
     {% include 'app/partials/breadcrumb.html' %}
-    <h2>{{ post.title }}</h2>
+    <div class="title">
+      <h2>{{ post.title }}</h2>
+      <span>
+        {{ post.created_date }}
+      </span>
+    </div>
+    <div class="author">
+      <span>
+          {{ post.author__username }} 작성
+      </span>
+    </div>
     
     {% if post.content %}
     <div class="content">
-      {{ post.content }}
+      {{ post.content | safe }}
     </div>
     {% endif %}
+
+    <button type="button" class="btn btn-warning">
+      수정
+    </button>
     
     <button type="button" class="btn btn-danger" onclick="removePost('{{ post.id }}')">
-
       {% csrf_token %}
       <input type="hidden" name="url" value="{% url 'app:api-post' id=post.id %}">
       <input type="hidden" name="id" value="{{ post.id }}">
       삭제
     </button>
-    
   </div>
+</main>
 {% endblock %}
