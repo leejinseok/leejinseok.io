@@ -6,6 +6,7 @@
 - React.js
 - React Router
 - Redux
+- Axios
 
 ### Back-end
 - Python Django
