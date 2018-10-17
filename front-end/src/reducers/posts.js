@@ -14,7 +14,7 @@ const initialState = {
 export default function posts (state = initialState, action) {
   switch(action.type) {
     case FETCH_POSTS_BEGIN:
-    console.log('[BEGIN]');
+    console.log('[FETCH_POSTS_BEGIN]');
     return {
       ...state,
       loading: true,
@@ -22,7 +22,7 @@ export default function posts (state = initialState, action) {
     };
     
     case FETCH_POSTS_SUCCESS:
-    console.log('[SUCCESS]');
+    console.log('[FETCH_POSTS_SUCCESS]');
     return {
       ...state,
       loading: false,
@@ -30,7 +30,7 @@ export default function posts (state = initialState, action) {
     };
     
     case FETCH_POSTS_FAILURE:
-    console.log('[FAILURE]');
+    console.log('[FETCH_POSTS_FAILURE]');
     return {
       ...state,
       loading: false,

@@ -6,8 +6,14 @@ import PostsPage from './pages/PostsPage';
 import ProjectPage from './pages/ProjectPage';
 import MePage from './pages/MePage';
 
-export default class App extends Component {
+import { connect } from 'react-redux';
+import { fetchPosts } from '../actions/postActions';
 
+class App extends Component {
+
+  componentDidMount () {
+    this.props.fetchPosts();
+  }
   render() {
     let isAdmin = window.location.pathname.split('/')[1] === 'admin';
     return (
@@ -22,3 +28,16 @@ export default class App extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  posts: state.posts.items,
+  loading: state.posts.loading,
+  error: state.posts.error
+});
+
+const mapDispatchProps = dispatch => ({
+  fetchPosts: () => { dispatch(fetchPosts()) },
+})
+
+
+export default connect(mapStateToProps, mapDispatchProps)(App);

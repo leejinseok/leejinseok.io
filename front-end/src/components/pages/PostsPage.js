@@ -8,7 +8,7 @@ const Posts = ({posts}) => {
     return (
       <article key={index}>
         <h2>{post.title}</h2>
-        <p dangerouslySetInnerHTML={{ __html: post.content }}>
+        <p dangerouslySetInnerHTML={{ __html: post.body }}>
         </p>
       </article>
     )
@@ -17,17 +17,16 @@ const Posts = ({posts}) => {
 
 class PostsPage extends Component {
   componentDidMount() {
-    this.props.fetchPosts();
   }
 
   render () {
     const { error, loading, posts } = this.props;
     if (error) {
-      return <div>Error! {error.message}</div>;
+      return <div className="full-width">Error! {error.message}</div>;
     }
 
     if (loading) {
-      return <div>Loading...</div>;
+      return <div className="full-width">Loading...</div>;
     }
 
     return (
