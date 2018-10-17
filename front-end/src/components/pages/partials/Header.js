@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
-import * as actions from '../../../actions';
+import * as globalActions from '../../../actions/globalActions';
 import profileImg from '../../../static/images/profile_2.jpg';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
@@ -59,8 +59,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchProps = (dispatch) => {
   return {
-      toggleSidebar: () => { dispatch(actions.toggleSidebar())},
-      hideSidebar: () => { dispatch(actions.hideSidebar())},
+      toggleSidebar: () => { dispatch(globalActions.toggleSidebar())},
+      hideSidebar: () => { dispatch(globalActions.hideSidebar())},
   };
 };
 

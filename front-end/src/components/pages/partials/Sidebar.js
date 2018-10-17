@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
-import * as actions from '../../../actions';
+import * as globalActions from '../../../actions/globalActions';
 
 class Sidebar extends Component {
 
@@ -23,7 +23,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchProps = (dispatch) => {
   return {
-      toggleSidebar: () => { dispatch(actions.toggleSidebar())},
+      toggleSidebar: () => { dispatch(globalActions.toggleSidebar())},
   };
 };
 

@@ -1,10 +1,10 @@
-import * as types from '../actions/ActionTypes';
+import * as types from '../actions/globalActions';
 
 const initialState = {
     sidebar: false
 };
 
-export default function ui(state = initialState, action) {
+export default function ui (state = initialState, action) {
     if (action.type === types.TOGGLE_SIDEBAR) {
         return {
             ...state,
