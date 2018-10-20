@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../../actions/postActions';
+import { changeMeta } from '../../actions/metaActions';
 import '../../static/css/posts.css';
 
 const Posts = ({posts}) => {
@@ -16,7 +17,20 @@ const Posts = ({posts}) => {
 }
 
 class PostsPage extends Component {
-  componentDidMount() {
+  componentDidMount () {
+    const meta = {
+      title: 'leejinseok.io',
+      description: 'leejinseok.io',
+      canonical: 'http://www.leejinseok.io',
+      meta: {
+          charset: 'utf-8',
+          name: {
+              keywords: 'react,meta,document,html,tags'
+          }
+      }
+    }
+
+    this.props.changeMeta(meta);
   }
 
   render () {
@@ -45,6 +59,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchProps = dispatch => ({
   fetchPosts: () => { dispatch(fetchPosts()) },
-})
+  changeMeta: (meta) => { dispatch(changeMeta(meta)) }
+});
 
 export default connect(mapStateToProps, mapDispatchProps)(PostsPage);
